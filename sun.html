@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="data:image/gif;base64,R0lGODlhEAAQAKICAHKRv/9mAP///5Cu1tvn+////wAAAAAAACH5BAEAAAIALAAAAAAQABAAAANCKArcrlAAQiuZQIXNO79CUIjkNo4UQJ4s2ZjwSaZruRa0pwcpNFlA0IIyKBoHvWHQklEejUnJkukjPpFC6TTq6DoSADs=" rel="icon" type="image/gif"/>
+		<title>Sunrise/Sunset Calculator</title>
+		<style type="text/css">
+			.srw {
+				width: 152px;
+			    height: 133px;
+			    display: inline-block;
+			    position: relative;
+			}
+			.srw:not(:last-child) {
+			    margin-right: 25px;
+			}
+			.sri {
+				background-image: url('data:image/gif;base64,R0lGODlhmACFAJEDAP7v2/u/cviYHf///yH5BAEAAAMALAAAAACYAIUAAAL/nI+py+2/QBAiAIiz3rz7PwDUKFzgiabqakxkxcbyPL8jjed6ZlP7D/z1BMGikTU8KpedJPMJZTij1Oi0ilVes1zgtgvGfcNkZK+Mlo3T7Oa5Df+s4/TGvI5H3PP5Pb/u94chEVBoouRCEsBEaLgk8XJoJBL5+GKB2CNZBFmxGUR5makp+BEqejRE8Vn6cGozOsTaGqEKc/RqM0t7kFup5EuySxs8MrxTvMqrkFwS1XycB101vVxNbeu8AsBdmKjozR1zjUXe0f2dfSl+Yl5uu+jRqU7v6JH+G5YcjTBP/z8C04Z9aYrxC4EPoEKBg1QdfCYLgj+FFBXxC/aQSq54/w6aVVwYDV9GbAGHTfyIUpirbyPLSTjm0UY4bjRrFqrIkMHLlnQSqrKQsRvAnMs0nBxC9NxRUkWN+lw37qnKphKlUki6zao2qjqtYpXhkac0q2LlkeWqQOpXHWfRtoBXFoU7a/Ag/kSbjCOUvFyf6rUbsWixvxp/xu0y+DCNwcueKsbhmJjDMksJ5/FpmYvBUpvTYC71mU1nPpPbBMtsGmmc0398Pi7iWppqOqzxYMSTEDWa3LKZ9uyhG03g1cPr8KYdiIyv4GCO94b1W6ag4mwSvmZinQ5148BzNPIGPnz4Xdujo4rwXbx6R0vVfS0fx3mC9tksaK3LLHkZ+Qju//9MeVUtb/yxHAP+AZiNgNAR2N0CCFYAoGXBgNZgWhHGVJoC8MHBXy8AXoChLnb4dlmF+X0kSU0qrkiTW2CxCCM7Ls5IY4023ohjjjruyGOPPv4IZJBCDklkkUYeiWSSSi7JZJNOPskHIddB2dVVU1LZzzdrYWnKhlxyQNCXJ2jFnJgR+LelmfMd6ImaVeF0JZEhkuimhwjG+eOctuDJ4303uecmfcYYEFOaSgqqjJ318Tkjhp84SmWhsyC6FZOSdnQfo0X5mQGnSVIaVD2aEpjpOaIWCak8/4yKnHtxgRrkpXKVqhGbD+IUg623goTQrr7mw4Kev4qq67DZ8CmssfAwFKssnWA1e+uf0KJkaAqUTosUs9NWq8K12K6jrbJlyhCusZh4iy2rOn37D7d1dlAAADs=');
+				background-repeat: no-repeat;
+			}
+			.ssi {
+				background-image: url('data:image/gif;base64,R0lGODlhmACFAJEDAP3h2fWPcfBaLf///yH5BAEAAAMALAAAAACYAIUAAAL/nI+py+2/QBAiAIiz3rz7PwDUKFzgiabqakxkxcbyPL8jjed6ZlP7D/z1BMGikTU8KpedJPMJZTij1Oi0ilVes1zgtgvGfcNkZK+Mlo3T7Oa5Df+s4/TGvI5H3PP5Pb/u94chEVBoouRCEsBEaLgk8XJoJBL5+GKB2CNZBFmxGUR5makp+BEqejRE8Vn6cIpqlEjaOqgKc/Rqw0qLkFup5Euyyxs8MvxTvMqrkFwS1XzMB101vVxNbeu8AsBdWGjjbcHNco1V7tGdrSqOcm5uu4guq66O6TH/G5YcnZBO/69onIZ9aYrxM8ANoEJNB0OoavhsyMFmC/9NlBgnVzwH/50qerzEDx/EdyPsMej4MWVAjrJGZuEmsAFKet5g2oTpbaHJk+yWMVPYM4M/iz7R/QuKbubDohvw9diZQulTphCkgsRhdSVVBk616shKYeNWBF1LugQB9tZYhNnORm271uE6tyrA0m2TDCqustqYltUL7C/VYoAflb1LhjDiGVkXdzkMhrC1pfoot+oqFgxmWsEKm+vqmApoNp1LlW4z+k9q0kMy0zkNZ3WdYKE5Yczj1DWb3Hlo4/E9+/Zr4XF4455ax2ltYMgzEh8+C04wQc8LNj+ui45xPttRR+99XUa3cOTLGxqmXJAv3QgbmX+PKe1crt9/hz8gv3X+dfSz//9Z399HfNEkRX3BvaHAgCr9U6B/0qyxYAUqsZfef/e1MCFFtuxS4YPgnKTSBRoaeECH4H0IokeS3MRii3GR02KMMb1IY4023ohjjjruyGOPPv4IZJBCDklkkUYeiWSSSi7JZJNOPglljftFqM5yHIxIJTzxKZjlUaN0uaA4YGbpmXhcjlnlmWhmU+Y2aq65zptwWkYDlnPOdWeEVvaS54JD9akiY4CmtKWcg4YVg6GHeoJNPY7lt6eHbCIGqZAatikTl5GapmkHl27aSqUD0QQqL1yylyCBS37KEj2lMsVqBJ0+GWsvs0IpKluORonfrLXyimGVlwIbQZav6mhndcQs8pnSsT1Oadayg7yJqbQInVmttfhVqa2nG3ZrFIngTuvVuJ66kK25PKWbRgEAOw==');
+				background-repeat: no-repeat;
+			}
+			.sw {
+				text-align: center;
+				position: relative;
+			    top: 64px;
+			    font-size: 22px;
+			    font-family: Arial, Helvetica, sans-serif;
+			    font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const sunEventTime = isSunrise => {
+				let now = new Date( );
+				let localOffset = now.getTimezoneOffset( );
+				let localOffsetHour =  -1 * localOffset / 60;
+				let startYear = new Date( now.getFullYear( ), 0, 0 );
+				let diff = ( now - startYear ) + ( ( startYear.getTimezoneOffset( ) - localOffset ) * 60 * 1000 );
+				let oneDay = 1000 * 60 * 60 * 24;
+				let days = Math.floor( diff / oneDay );
+				let latitude = ( -1 * startYear.getTimezoneOffset( ) / 60 - 0.35 ) * 360 / 12;
+				let longitude = 24.0297;
+				let zenith = 90.8333;
+				let longitudeHour = longitude / 360 * 24;
+				let timeOfEventApprox = days + ( ( ( isSunrise ? 6 : 18 ) - longitudeHour ) / 24 );
+				let sunMeanAnomaly = ( 0.9856 * timeOfEventApprox ) - 3.289;
+				let sunLongitude = sunMeanAnomaly + ( 1.916 * Math.sin( rad( sunMeanAnomaly ) ) ) + ( 0.020 * Math.sin( rad( 2 * sunMeanAnomaly ) ) ) + 282.634;
+				let sunRightAscension = grad( Math.atan( 0.91764 * Math.tan( rad( sunLongitude ) ) ) );
+				let sunLongitudeQuadrant = Math.floor( sunLongitude / 90 ) * 90;
+				let sunRightAscensionQuadrant = Math.floor( sunRightAscension / 90 ) * 90;
+				sunRightAscension = sunRightAscension + ( sunLongitudeQuadrant - sunRightAscensionQuadrant );
+				let sunRightAscensionHour = sunRightAscension / 360 * 24;
+				let sunDeclinationSin = 0.39782 * Math.sin( rad( sunLongitude ) );
+				let sunDeclinationCos = Math.cos( Math.asin( sunDeclinationSin ) );
+				let sunLocalAngleCos = ( Math.cos( rad( zenith ) ) - ( sunDeclinationSin * Math.sin( rad( latitude ) ) ) ) / ( sunDeclinationCos * Math.cos( rad( latitude ) ) );
+				if( sunLocalAngleCos > 1 ) return isSunrise ? 24 : 0;  //never rises
+				if( sunLocalAngleCos <  - 1 ) return isSunrise ? 0 : 24;  //never sets
+				let sunLocalAngle = isSunrise ? ( 360 - grad( Math.acos( sunLocalAngleCos ) ) ) : ( grad( Math.acos( sunLocalAngleCos ) ) );
+				let sunLocalHour = sunLocalAngle / 360 * 24;
+				let sunEventLocalTime = sunLocalHour + sunRightAscensionHour - ( 0.06571 * timeOfEventApprox ) - 6.622;
+				let utcEventTime = sunEventLocalTime - longitudeHour;
+				if( utcEventTime < 0 ) utcEventTime += 24;
+				if( utcEventTime >= 24 ) utcEventTime -= 24;
+				let localTimeHour = utcEventTime + localOffsetHour;
+				return localTimeHour;
+			}
+			const rad = grad => grad * Math.PI / 180;
+			const grad = rad => rad * 180 / Math.PI;
+
+			const addText = ( text, isSunrise ) => {
+				let body = document.getElementsByTagName( 'body' )[0];
+				let sr = document.getElementById( 'sr' );
+				if( sr == null ) {
+					let sri = document.createElement( 'div' );
+					sri.className = 'srw sri';
+					sr = document.createElement( 'div' );
+					sr.id = 'sr';
+					sr.className = 'sw';
+					sri.appendChild( sr );
+					body.appendChild( sri );
+				}
+				let ss = document.getElementById( 'ss' );
+				if( ss == null ) {
+					let ssi = document.createElement( 'div' );
+					ssi.className = 'srw ssi';
+					ss = document.createElement( 'div' );
+					ss.id = 'ss';
+					ss.className = 'sw';
+					ssi.appendChild( ss );
+					body.appendChild( ssi );
+				}
+				if( isSunrise ) {
+					sr.innerHTML = '';
+					sr.appendChild( document.createTextNode( text ) );
+				}
+				if( !isSunrise ) {
+					ss.innerHTML = '';
+					ss.appendChild( document.createTextNode( text ) );
+				}
+			}
+			const getSunEventTimeText = ( isSunrise, addText ) => {
+				let eventTime = sunEventTime( isSunrise );
+				let eventTimeHour = Math.floor( eventTime );
+				let minutes = Math.floor( ( eventTime - eventTimeHour ) * 60 );
+				if( minutes < 10 ) minutes = '0' + minutes;
+				return ( addText ? ( isSunrise ? 'Sunrise' : 'Sunset' ) + ': ' : '' ) + eventTimeHour + ':' + minutes;
+			}
+			window.onload = () => {
+				addText( getSunEventTimeText( true, false ), true );
+				addText( getSunEventTimeText( false, false ), false );
+			}
+		</script>
+	</body>
+</html>
